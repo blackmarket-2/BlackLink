@@ -37,21 +37,12 @@ const App = () => {
         {/* Public Landing Page */}
         <Route path="/" element={<LandingPage />} />
 
-        {/* Auth Routes (Shared Layout) */}
-        <Route element={<AuthLayout />}>
-          <Route path="/sign-in" element={<SignInPage />} />
-          <Route path="/sign-up" element={<SignUpPage />} />
-        </Route>
+        {/* Auth Pages — no layout or protection now */}
+        <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
 
-        {/* Protected Routes */}
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoutes>
-              <Dashboard />
-            </ProtectedRoutes>
-          }
-        />
+        {/* Dashboard — directly accessible */}
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

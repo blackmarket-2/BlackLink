@@ -59,17 +59,7 @@ const NavBar = () => {
             Customers
           </a>
           <div className="flex items-center gap-3">
-            {/* When user is signed in */}
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-
-            {/* When user is signed out */}
-            <SignedOut>
-              <SignInButton>
-                <Button variant="secondary">Sign In</Button>
-              </SignInButton>
-            </SignedOut>
+            <Button variant="secondary">Sign In</Button>
           </div>
         </nav>
       </div>
