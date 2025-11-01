@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   SignedIn,
   SignedOut,
@@ -9,7 +9,9 @@ import LogoImage from "../assets/images/logosaas.png";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/Button";
 
+
 const NavBar = () => {
+
   return (
     <div className="px-4 bg-black">
       <div className="py-4 flex items-center justify-between">
