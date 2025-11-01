@@ -12,6 +12,7 @@ const DoctorVerification = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="verify-container">
       <h2>Doctor Verification</h2>
       <p>Upload your degree or license for verification.</p>
@@ -19,6 +20,17 @@ const DoctorVerification = () => {
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={(e) => setFile(e.target.files[0])} required />
         <button type="submit">Submit</button>
+=======
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h2 className="text-2xl font-bold mb-4">Doctor Verification</h2>
+      <p className="text-gray-600 mb-4">Upload your degree or license for verification.</p>
+
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 w-80 bg-gray-100 p-6 rounded-lg">
+        <input type="file" required onChange={(e) => setFile(e.target.files[0])} />
+        <button type="submit" className="bg-blue-600 text-white py-2 rounded">
+          Submit Documents
+        </button>
+>>>>>>> e1ac13e4e424d986640b06d70770eafc7f7bacce
       </form>
     </div>
   );
