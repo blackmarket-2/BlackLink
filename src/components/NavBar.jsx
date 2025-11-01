@@ -1,4 +1,3 @@
-
 import {
   SignedIn,
   SignedOut,
@@ -9,9 +8,8 @@ import LogoImage from "../assets/images/logosaas.png";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/Button";
 
-
+import { Link } from "react-router-dom";
 const NavBar = () => {
-
   return (
     <div className="px-4 bg-black">
       <div className="py-4 flex items-center justify-between">
@@ -71,11 +69,7 @@ const NavBar = () => {
           <div className="flex items-center gap-3">
             {/* If user is logged in */}
             <SignedIn>
-              {role && (
-                <Button variant="secondary" onClick={handleDashboardRedirect}>
-                  {role === "doctor" ? "Doctor Dashboard" : "Patient Dashboard"}
-                </Button>
-              )}
+             
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
 

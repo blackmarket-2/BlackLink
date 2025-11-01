@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { SignIn } from "@clerk/clerk-react";
 import AuthLayout from "./(auth)/AuthLayout";
 import SignInPage from "./(auth)/SignIn";
+
 import SignUpPage from "./(auth)/SignUp";
 import Dashboard from "./(main)/dashboard/Dashboard";
 import ProtectedRoutes from "./components/ProtectedRoutes";
