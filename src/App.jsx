@@ -10,11 +10,11 @@ import FAQs from "./components/FAQs";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 
-import AuthLayout from "./(auth)/AuthLayout";
 import SignInPage from "./(auth)/SignIn";
 import SignUpPage from "./(auth)/SignUp";
 import Dashboard from "./(main)/dashboard/Dashboard";
-import ProtectedRoutes from "./components/ProtectedRoutes";
+import ChooseRole from "./(auth)/ChooseRole";
+import DoctorVerification from "./(auth)/DoctorVerficiation";
 
 const LandingPage = () => (
   <>
@@ -36,13 +36,14 @@ const App = () => {
       <Routes>
         {/* Public Landing Page */}
         <Route path="/" element={<LandingPage />} />
-
         {/* Auth Pages — no layout or protection now */}
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
-
         {/* Dashboard — directly accessible */}
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/choose-role" element={<ChooseRole />} /> {/* 🆕 */}
+        <Route path="/verify-doctor" element={<DoctorVerification />} />{" "}
+        {/* 🆕 */}
       </Routes>
     </BrowserRouter>
   );

@@ -8,6 +8,7 @@ import {
 import LogoImage from "../assets/images/logosaas.png";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/Button";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -59,7 +60,11 @@ const NavBar = () => {
             Customers
           </a>
           <div className="flex items-center gap-3">
-            <Button variant="secondary">Sign In</Button>
+            <Link to="/sign-up">
+              <Button variant="secondary" path="/sign-up">
+                Sign Up
+              </Button>
+            </Link>
           </div>
         </nav>
       </div>
