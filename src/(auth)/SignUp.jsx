@@ -1,12 +1,15 @@
 import { SignUp } from "@clerk/clerk-react";
-import React from "react";
 
 const SignUpPage = () => {
   return (
-    <SignUp
-      signUpForceRedirectUrl="/welcome"
-      signUpFallbackRedirectUrl="/welcome"
-    />
+    <div className="flex justify-center items-center h-screen">
+      <SignUp
+        path="/sign-up"
+        signInUrl="/sign-in"
+        afterSignUpUrl="/select-role"
+        redirectUrl="/select-role"
+      />
+    </div>
   );
 };
 

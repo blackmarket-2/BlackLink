@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import AuthLayout from "./(auth)/AuthLayout";
@@ -13,16 +12,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public Landing Page */}
         <Route path="/" element={<LandingPage />} />
-
-        {/* Auth Routes (Shared Layout) */}
-        <Route element={<AuthLayout />}>
-          <Route path="/sign-in" element={<SignInPage />} />
-          <Route path="/sign-up" element={<SignUpPage />} />
-        </Route>
-
-        {/* Protected Routes */}
+        <Route
+          path="/sign-in"
+          element={<SignIn afterSignInUrl="/dashboard" redirectUrl="/dashboard" />}
+        />
         <Route
           path="/dashboard"
           element={
