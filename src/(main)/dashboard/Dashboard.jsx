@@ -1,9 +1,15 @@
-import React from 'react'
+import { useUser } from "@clerk/clerk-react";
+import DoctorDashboard from "./DoctorDashboard";
+import PatientDashboard from "./PatientDashboard";
 
 const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+  const { user } = useUser();
+  const role = user?.publicMetadata?.role;
 
-export default Dashboard
+  if (role === "doctor") return <DoctorDashboard />;
+  if (role === "patient") return <PatientDashboard />;
+
+  return <div>Please select your role first.</div>;
+};
+
+export default Dashboard;

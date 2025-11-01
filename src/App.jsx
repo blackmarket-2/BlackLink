@@ -1,5 +1,5 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SignIn, SignUp } from "@clerk/clerk-react";
 import Banner from "./components/Banner";
 import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
@@ -9,12 +9,11 @@ import ProductShowCase from "./components/ProductShowCase";
 import FAQs from "./components/FAQs";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
-
-import AuthLayout from "./(auth)/AuthLayout";
-import SignInPage from "./(auth)/SignIn";
-import SignUpPage from "./(auth)/SignUp";
+import RoleSelect from "./(auth)/RoleSelect";
+import DoctorDocsUpload from "./(auth)/DoctorDocsUpload";
 import Dashboard from "./(main)/dashboard/Dashboard";
-import ProtectedRoutes from "./components/ProtectedRoutes";
+import DoctorDashboard from "./(main)/dashboard/DoctorDashboard";
+import PatientDashboard from "./(main)/dashboard/PatientDashboard";
 
 const LandingPage = () => (
   <>
@@ -34,24 +33,20 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Public Landing Page */}
         <Route path="/" element={<LandingPage />} />
-
-        {/* Auth Routes (Shared Layout) */}
-        <Route element={<AuthLayout />}>
-          <Route path="/sign-in" element={<SignInPage />} />
-          <Route path="/sign-up" element={<SignUpPage />} />
-        </Route>
-
-        {/* Protected Routes */}
         <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoutes>
-              <Dashboard />
-            </ProtectedRoutes>
-          }
+          path="/sign-in"
+          element={<SignIn afterSignInUrl="/dashboard" redirectUrl="/dashboard" />}
         />
+        <Route
+          path="/sign-up"
+          element={<SignUp afterSignUpUrl="/select-role" redirectUrl="/select-role" />}
+        />
+        <Route path="/select-role" element={<RoleSelect />} />
+        <Route path="/upload-documents" element={<DoctorDocsUpload />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/doctor" element={<DoctorDashboard />} />
+        <Route path="/dashboard/patient" element={<PatientDashboard />} />
       </Routes>
     </BrowserRouter>
   );
